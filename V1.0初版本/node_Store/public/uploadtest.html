@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<fieldset >
+    <legend>文件导入</legend>
+<form action="/upload/upload" enctype="multipart/form-data" method="post">
+    <input type="text" name="title"><br>
+    <input type="file" name="upload" multiple="multiple"><br>
+    <input type="submit" value="Upload">
+    </form>
+</fieldset>
+<div>----------------------------------------------------------------------------------------------------</div>
+<fieldset >
+    <legend>上传或者修改</legend>
+    <div class="upUserData_centent_file">
+        <div><span>修改头像:</span></div>
+        <input type="file" id="file" name="file"><br/>
+        <input type="button" style="height: 30px" id="btnUpload" class="UpUser_btn btn2" value="更换头像"/>
+    </div>
+
+
+
+</fieldset>
+
+
+</body>
+<script src="./jquery-2.2.3.min.js"></script>
+<script src="./javascripts/ajaxfileupload.js"></script>
+<script !src="">
+    document.querySelector('#btnUpload').onclick = function () {
+        console.log("点击更改头像")
+        ajaxFileUpload(1)
+    }
+    function ajaxFileUpload(u_id) {
+        //这里写死 需要前端自己获取id
+        // let u_id =1;
+        var elementIds = ["flag"]; //flag为id、name属性名
+        $.ajaxFileUpload({
+            //
+            url: 'http://localhost:3000/users/upicon?u_id='+u_id,
+            secureuri: false, //一般设置为false
+            fileElementId: 'file', // 上传文件的id、name属性名
+            dataType: 'text', //返回值类型，一般设置为json、application/json
+            // elementIds: elementIds, //传递参数到服务器
+            data:{
+                u_id
+            },
+            success: function (data, status) {
+                alert(data);
+            },
+            error: function (data, status, e) {
+                alert("您的网络好像不稳定,头像上传失败");
+            }
+        });
+    }
+
+
+
+</script>
+</html>

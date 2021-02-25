@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册页面</title>
+    <link rel="stylesheet" type="text/less" href="./less/config/style.less">
+    <script src="./lib/less.min.js"></script>
+</head>
+<body class="body" style="background: url('./images/shouyebg.png') no-repeat ;background-size: cover">
+
+<div class="spanaa">随意做的注册界面</div>
+<div class="inputkuang">
+    <div class="Phone_box1">
+        <span>输入用户名:</span>
+        <input type="text" id="regist_name">
+        <i id="a1"></i>
+    </div>
+    <div class="Phone_box1">
+        <span>输入密码:</span>
+        <input type="password" id="regist_pwd">
+        <i id="a2"></i>
+    </div>
+    <div class="login_btn_box">
+        <div class="login_btn" id="regist_btn">注册</div>
+    </div>
+</div>
+
+
+</body>
+<script src="jquery-2.2.3.min.js"></script>
+<script src="javascripts/ajaxFun.js"></script>
+<script src="javascripts/regist.js"></script>
+<script !src="">
+
+</script>
+<script type="text/javascript">
+    $(function () {
+        let Files = null;
+
+        /**
+         *选择上传图片并且预览效果图
+         * @param fileid
+         * @param imgid
+         * @param fileValId 用来显示选择的文件名
+         */
+        function chooseImage(fileid, imgid, fileValId) {
+            let fileObj = document.getElementById(fileid);
+            if (typeof (fileObj) == "undefined" || fileObj.files.length == 0) {
+                console.log('file ' + fileid + ' not exists');
+                return;
+            }
+            let file = fileObj.files[0];
+            console.log(file)
+            let reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = function (e) {
+                let imgResult = e.target.result;
+                let imgObj = document.getElementById(imgid);
+                if (typeof (imgObj) != "undefined") {
+                    imgObj.setAttribute("src", imgResult);
+                }
+                let fileValObj = document.getElementById(fileValId);
+                if (typeof (fileValObj) != "undefined") {
+                    fileValObj.setAttribute("value", imgResult);
+                }
+            };
+        };
+        $('#file').on('change', function () {
+            chooseImage('file', 'photo', 'fileVal');
+        });
+
+    });
+</script>
+
+</html>

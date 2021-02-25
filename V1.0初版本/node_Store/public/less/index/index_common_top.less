@@ -1,0 +1,126 @@
+.index_topback{
+  position: relative;
+  height: 500*@dw;
+  background-image: url("../../images/back1.jpg")  ;
+  background-size:100% 150%;
+
+.common_top{
+  position:absolute ;
+  z-index: 999;
+  display: flex;
+  width: 100%;
+  height: 70*@dw;
+  //background: #595363;
+  justify-content:space-between;
+  //通用导航栏左
+.comtop_left{
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  div:first-child{
+    text-align: center;
+    width: 65*@dw;
+    height: 100%;
+    color: #999999;
+    font-size: 0.5rem;
+  }
+  //通用导航栏title
+  .com_left_ul{
+    ul{
+      width: 630*@dw;
+      height: 100%;
+      display: flex;
+     /* align-content: space-around;
+      justify-items:center;*/
+      align-items: center;
+      justify-content: space-around;
+     li{
+
+       color: white;
+
+     }
+
+    }
+  }
+//通用导航栏搜索
+ .com_search{
+   height: 100%;
+   width: 400*@dw;
+   margin-left: 20*@dw;
+   display: flex;
+   align-items: center;
+   justify-content: space-around;
+   input{
+     padding-left: 8*@dw;
+     height: 65%;
+     width: 75%;
+     border:1px solid #61bd12;
+     border-radius: 10*@dw;
+   }
+   div{
+
+     display: flex;
+     align-items: center;
+     justify-content: center;
+    span{
+      color: #61bd12;
+
+      }
+     font-size: 22*@dw;
+     border:1px solid #61bd12;
+     border-radius: 5*@dw;
+      width: 20%;
+       height: 65%;
+   }
+
+ }
+
+}
+  //通用导航右边
+  .comtop_right{
+    margin-right: 60*@dw;
+    display: flex;
+    width: 250*@dw;
+    justify-content: center;
+    align-items: center;
+    .comtop_right_img{
+      width: 60*@dw;
+      height: 60*@dw;
+      img{
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .comtop_right_user{
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      width: 100*@dw;
+      height: 60*@dw;
+      span{
+        color: white;
+        font-size: 16*@dw;
+      }
+      span1{
+        margin-left: 15*@dw;
+        color: white;
+        font-size: 18*@dw;
+      }
+    }
+  }
+
+}
+
+  .maoboli{
+    position:absolute ;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 70*@dw;
+    background: #333333;
+      //background-color: rgba(0,0,0,0.3);
+      opacity:0.8;
+     filter:alpha(opacity=30)
+  }
+}

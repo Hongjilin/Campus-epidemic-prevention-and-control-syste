@@ -1,0 +1,37 @@
+*{
+  margin: 0;
+  padding: 0;
+  //在后面如果添加了padding防止滚动条及布局变化
+  box-sizing: border-box;
+  //移动端必备 即点击亮光 变透明
+  -webkit-tap-highlight-color:transparent;
+  //禁止放大缩小多行文本框
+  resize: none;
+  //输入框边框消除
+  outline: none;
+  //清除li标签前缀点
+  list-style: none;
+  text-decoration:none;
+}
+body{
+  //移动端通常同14px字体
+  font-size: 0.28rem;
+  background: rgba(0,0,0,0.03);
+/*  max-width: 900px;
+  min-width: 300px;*/
+}
+//改变输入框提示
+input::-webkit-input-placeholder {
+  color: #cccccc;
+}
+input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+  color: #cccccc;
+}
+
+input::-moz-placeholder { /* Mozilla Firefox 19+ */
+  color: #cccccc;
+}
+
+input:-ms-input-placeholder { /* Internet Explorer 10+ */
+  color: #cccccc;
+}

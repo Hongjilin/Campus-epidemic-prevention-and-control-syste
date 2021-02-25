@@ -1,0 +1,20 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  resize: none;
+  outline: none;
+  list-style: none;
+}
+body {
+  font-size: 0.28rem;
+  background: rgba(0, 0, 0, 0.03);
+  max-width: 900px;
+  min-width: 300px;
+}
+/*
+html{
+
+}*/
+/*# sourceMappingURL=reset.css.map */

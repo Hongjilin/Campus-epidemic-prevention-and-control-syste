@@ -1,0 +1,28 @@
+//根节点适应函数
+.cal(@index) when (@index<=@len)
+{
+  //extract(@arry,@index)
+  @media screen and (min-width:extract(@deviceWidth,@index))
+  {
+    html
+    {
+      font-size:@baseFont/@psdWudth*extract(@deviceWidth,@index);
+    }
+  };
+  .cal(@index+1);
+};
+
+//@arry: 360px,720px,900px;
+//@index:0;
+/*1.@media screen 查询屏幕分辨率
+  2.and是css时使用,为什么less中生效,并且换成when失效
+     @media screen and 是固定写法
+  3.如何调用函数 不可在样式中调用
+  4.less数组下标从1开始
+  */
+
+//extract(数组名,数组下标)=arr[index]
+//条件判断
+
+
+
