@@ -1,0 +1,108 @@
+#!/usr/bin/env node
+
+/**
+ * Module dependencies.
+ */
+
+var app = require('../app');
+var debug = require('debug')('xk-demo:server');
+var http = require('http');
+
+/**
+ * Get port from environment and store in Express.
+ */
+
+var port = normalizePort(process.env.PORT || '3000');
+app.set('port', port);
+
+/**
+ * Create HTTP server.
+ */
+
+var server = http.createServer(app);
+
+/**
+ * Listen on provided port, on all network interfaces.
+ */
+
+server.listen(port);
+server.on('error', onError);
+server.on('listening', onListening);
+
+/**
+ * Normalize a port into a number, string, or false.
+ */
+
+function normalizePort(val) {
+  var port = parseInt(val, 10);
+
+  if (isNaN(port)) {
+    // named pipe
+    return val;
+  }
+
+  if (port >= 0) {
+    // port number
+    return port;
+  }
+
+  return false;
+}
+
+/**
+ * Event listener for HTTP server "error" event.
+ */
+
+function onError(error) {
+  if (error.syscall !== 'listen') {
+    throw error;
+  }
+
+  var bind = typeof port === 'string'
+    ? 'Pipe ' + port
+    : 'Port ' + port;
+
+  // handle specific listen errors with friendly messages
+  switch (error.code) {
+    case 'EACCES':
+      console.error(bind + ' requires elevated privileges');
+      process.exit(1);
+      break;
+    case 'EADDRINUSE':
+      console.error(bind + ' is already in use');
+      process.exit(1);
+      break;
+    default:
+      throw error;
+  }
+}
+
+/**
+ * Event listener for HTTP server "listening" event.
+ */
+
+var fs = require('fs');
+function getPackageJson() {
+    // console.log('----------------------1.开始读取package.json')
+    var _packageJson = fs.readFileSync('./package.json')
+    // console.log('----------------------读取package.json文件完毕')
+    return JSON.parse(_packageJson)
+}
+function onListening() {
+    var addr = server.address();
+    var bind = typeof addr === 'string'
+        ? 'pipe ' + addr
+        : 'port ' + addr.port;
+    console.log(`
+#    _____                     .___
+#  _/ ____\\  ____    ____    __| _/  ____
+#  \\   __\\  /    \\  /  _ \\  / __ | _/ __ \\
+#   |  |   |   |  \\(  <_> )/ /_/ | \\  ___/
+#   |__|   |___|  / \\____/ \\____ |  \\___  >
+#               \\/              \\/      \\/
+=============================================
+fnode :: (v0.0.1RELEASE)
+        `)
+    console.log(`[SYSTERM]${getPackageJson().name}应用启动中...`);
+    console.log(`[SYSTERM]应用部署在${bind}`);
+}
