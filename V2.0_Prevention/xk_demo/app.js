@@ -11,6 +11,22 @@ var uploadRouter = require('./routes/upload');
 var studentRouter = require('./routes/student');
 var app = express();
 
+/**
+ * 聊天室端口监听
+ */
+let server = app.listen(5200)
+let io = require('socket.io').listen(server)
+//引入自己写的socket.io包
+require('./sockets/socket')(io);
+// app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+// app.listen(, () => console.log(`Example app listening on port ${port}!`))
+io.on('connection', (socket) => {
+    console.log('Socket 链接成功!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
+});
+
+
+
+
 
 /**
  * 全系统允许跨域处理 这段配置要再new出express实例的时候就要设置了，放在所有的api前面，不然没有效果

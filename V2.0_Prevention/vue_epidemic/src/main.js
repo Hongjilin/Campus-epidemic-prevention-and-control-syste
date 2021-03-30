@@ -13,7 +13,7 @@ import 'v-charts/lib/pie.common'
 Vue.use(VCharts)
 Vue.use(ElementUi)
 
-/*
+
 import  io from './components/socket/weapp.socket.io'
 //套接字端口定义
 Vue.prototype.socket=io('http://localhost:5200')
@@ -24,7 +24,7 @@ Vue.use(new VueSocket({
     debug: false,
     connection:'http://localhost:5200'
 }))
-*/
+
 
 Vue.prototype.socketpath="http://localhost:5200",
 

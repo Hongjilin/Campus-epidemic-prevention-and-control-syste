@@ -13,8 +13,8 @@ const routes = [
             {path:'teacher', component:() => import('@/components/main/teacherAdmin.vue')},
             {path:'home', component:() => import('@/components/homepage/homepage.vue')},
             {path:'noticeSend', component:() => import('@/components/main/noticeSend.vue')},
-            // {path:'otp', component:() => import('@/components/socket/otp_socket.vue')},
-            // {path:'oto', component:() => import('@/components/socket/oto_socket.vue')},
+            {path:'otp', component:() => import('@/components/socket/otp_socket.vue')},
+            {path:'oto',  component:() => import('@/components/socket/otp_socket.vue')},
             {path:'add', component:() => import('@/components/main/addclass.vue')},
           ]},
     {path:'/student',name:'Student',component:() => import('@/components/menu/Student.vue'),
@@ -24,8 +24,8 @@ const routes = [
             {path:'health',component:() => import('@/components/main/healthTable.vue')},
             {path:'application', component:() => import('@/components/main/application.vue')},
             {path:'user',component:() => import('@/components/main/user.vue')},
-            // {path:'otp', component:() => import('@/components/socket/otp_socket.vue')},
-            // {path:'oto', component:() => import('@/components/socket/oto_socket.vue')},
+            {path:'otp', component:() => import('@/components/socket/otp_socket.vue')},
+            {path:'oto',  component:() => import('@/components/socket/otp_socket.vue')},
           ]},
     {path:'/teacher',name:'Teacher',component:() => import('@/components/menu/Teacher.vue'),
         children:[
@@ -33,8 +33,8 @@ const routes = [
             {path:'notice',component:() => import('@/components/main/noticeSend.vue')},
             {path:'leave',component:() => import('@/components/main/leave.vue')},
             {path:'user',component:() => import('@/components/main/user.vue')},
-            // {path:'otp', component:() => import('@/components/socket/otp_socket.vue')},
-            // {path:'oto', component:() => import('@/components/socket/oto_socket.vue')},
+            {path:'otp', component:() => import('@/components/socket/otp_socket.vue')},
+            {path:'oto',  component:() => import('@/components/socket/otp_socket.vue')},
           ]},
 ]
 

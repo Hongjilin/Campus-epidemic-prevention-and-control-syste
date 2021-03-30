@@ -57,6 +57,14 @@ export default {
                      this.input_user=""
                  }else{
                      window.localStorage.setItem("token",result.jwt_token)
+                     //方便后来群聊使用
+                     const socketData={
+                         "id":result.loginData[0].id,
+                         "name":result.loginData[0].username,
+                         "img":result.loginData[0].head,
+                         }
+                    window.localStorage.setItem("socketData",JSON.stringify(socketData))
+                    //  window.localStorage.setItem("id",id);
                      if (this.radio3==1)  window.location.href=' http://localhost:80/#/admin/home'
                      if (this.radio3==2)  window.location.href=' http://localhost:80/#/student/home'
                      if (this.radio3==3)  window.location.href=' http://localhost:80/#/teacher/home'
