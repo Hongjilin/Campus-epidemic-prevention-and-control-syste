@@ -202,6 +202,7 @@ export default {
               method:"get",
               data:{},
               success:(result)=> {
+                  console.log(result,"xxxxxxxxxxxxx---------------------")
                   if(result.length==0) this.show=true
                   else {
                       this.show=false;

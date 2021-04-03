@@ -54,8 +54,12 @@ module.exports=class  Model {
         let Month =""
         if ((date.getMonth()+1)<10)   Month="0"+String((date.getMonth()+1))
         else Month=(date.getMonth()+1)+""
-        let newDate= ""+date.getFullYear()+Month+date.getDate()
-        let lastDate=""+date.getFullYear()+Month+(date.getDate()+1)
+        let now=date.getDate()
+        let lastnow=date.getDate()
+        if(date.getDate()<10) now="0"+date.getDate()
+        if(date.getDate()<9) lastnow="0"+(date.getDate()+1)
+        let newDate= ""+date.getFullYear()+Month+now
+        let lastDate=""+date.getFullYear()+Month+lastnow
         let nowMonth=""+date.getFullYear()+Month+"01"
         let lastMonth=""+date.getFullYear()+Month+"31"
 
