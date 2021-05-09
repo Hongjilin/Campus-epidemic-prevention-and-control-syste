@@ -85,8 +85,7 @@ module.exports=class users_dao extends  require('../model/users_mod'){
      * @returns {Promise<void>}
      */
     static async setXlsxData(req,resp){
-        console.log("ssssssssssss埃斯昆啊是擦服务部除非客户跟进阿巴卡v更何况发生的更何况双方的更何况发生的更何况是否打开工会经费是的客观环境发大水工行金卡发工行金卡法国红酒看发规划尽快发规划尽快发是个好卡规范化卡反对工行金卡发的规划尽快发啊工行金卡发工行金卡发的客观环境" +
-            "")
+        console.log("点击导入")
         let xlsxData=await redisUtils.get("xlsxData")
         let AllUsers=await  this.getAllUserX();
         if (xlsxData=='err') {
@@ -96,6 +95,7 @@ module.exports=class users_dao extends  require('../model/users_mod'){
         xlsxData=JSON.parse(xlsxData)[0].data
         let inXlsxArr=[];
         let infalg=true;
+        console.log(xlsxData[0].length)
         if (xlsxData[0].length!=8) resp.send("导入的表格数据格式错误")
 
         for (let i=1;i<xlsxData.length;i++){

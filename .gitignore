@@ -11,3 +11,7 @@
 /dist
 
 node_modules
+
+# 忽略uploads上传的所有文件
+public/upload/*
+!public/upload/

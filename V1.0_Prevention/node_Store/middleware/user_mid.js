@@ -135,7 +135,13 @@ let setXlsxData = async (req, resp) => {
     let inXlsxArr=[];
     let upXlsxArr=[];
     let infalg=true;
+    console.log(typeof (xlsxData),"user_middddddddddddddddddddddd")
+
 //如果上传的文件中数据不是8个,则肯定格式错误
+//     if (typeof (xlsxData)=="object") {
+//         resp.send("表格无新数据"); //如果给的不是数组
+//         return
+//     }
     if (xlsxData[0].length!=8){
         resp.send("导入的表格数据格式错误或者上传表格")
     }
