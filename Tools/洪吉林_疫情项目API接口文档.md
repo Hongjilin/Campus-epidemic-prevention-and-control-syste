@@ -828,5 +828,11 @@
 >) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 >```
 
+### 1.8.7 设置删除更新的权限
 
+>```sql
+>SET FOREIGN_KEY_CHECKS=0;
+>```
+>
+>此处不设置的话,可能在进行删除或者更新操作时会报错,具体详见本人[``Mysql使用笔记``](https://gitee.com/hongjilin/hongs-study-notes/tree/master/%E7%BC%96%E7%A8%8B_%E5%90%8E%E5%8F%B0%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Mysql%E6%95%B0%E6%8D%AE%E5%BA%93/Mysql%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0)中的``解除输入的安全模式``问题描述
 
