@@ -4,7 +4,7 @@
 >
 > 本人全部[`编程学习笔记分享`](https://gitee.com/hongjilin/hongs-study-notes),里面记录本人毕生所学--前后端编程学习、算法、软件破解之类的的都记录进去了。传到了git上,需要的自取,持续更新,觉得好的给个``star`谢谢
 
-# #目录!
+# #目录
 
 >[TOC]
 
@@ -723,4 +723,110 @@
 
 
 
-### 1.7.6 聊天室
+## 1.8. 数据库创建语句
+
+> 本来我是懒得写这个,因为觉得给出了数据库er图应该大伙都可以自己写出来,但是好多人私信说不会创建数据库,想了一下那我就写出sql创建语句,正好也当锻炼一下自己.所以看到这里还不点个`star`是不是说不过去了:dog:
+>
+> 大家创建了``database`后,运行以下几个查询语句即可创建全部表,这饭都喂到嘴里了别说还不会了同学们,这都不会就说不过去了
+
+### 1.8.1用户表结构创建sql语句
+
+>```sql
+>DROP TABLE IF EXISTS `user`;
+>CREATE TABLE `user` (
+>  `id` int(11) NOT NULL COMMENT '用户id',
+>  `token` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+>  `username` varchar(100) COLLATE utf8_unicode_ci NOT NULL COMMENT '用户',
+>  `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL COMMENT '密码',
+>  `head` mediumtext CHARACTER SET utf8 COMMENT '头像',
+>  `mailbox` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '邮箱',
+>  `address` varchar(255) CHARACTER SET utf8 DEFAULT NULL COMMENT '地址',
+>  `sex` varchar(20) CHARACTER SET utf8 DEFAULT NULL COMMENT '性别',
+>  `modifytime` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '最近一次修改时间',
+>  `createtime` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '存入时间',
+>  `classes` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '所属班级',
+>  `type` int(11) NOT NULL,
+>  PRIMARY KEY (`id`)
+>) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+>```
+
+### 1.8.2 健康填报表结构创建sql语句
+
+>```sql
+>DROP TABLE IF EXISTS `health`;
+>CREATE TABLE `health` (
+>  `h_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '健康表id',
+>  `u_id` int(11) NOT NULL COMMENT '用户id',
+>  `temperature` float(11,1) DEFAULT NULL COMMENT '当前体温',
+>  `hot` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '是否发热',
+>  `gohubei` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '是否去过湖北',
+>  `hubeiren` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '是否是湖北籍贯',
+>  `fever` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '是否发热',
+>  `leaveout` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '是否离开学校',
+>  `hesuan` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '是否经过核酸检测',
+>  `mask` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '口罩是否充足',
+>  `masknum` int(11) DEFAULT NULL COMMENT '口罩剩余数量',
+>  `kills` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '杀毒用品是否充足',
+>  `createtime` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '存入时间',
+>  PRIMARY KEY (`h_id`)
+>) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+>```
+
+### 1.8.3 请假表结构创建sql语句
+
+>```sql
+>DROP TABLE IF EXISTS `leave`;
+>CREATE TABLE `leave` (
+>  `l_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '请假表id -创建时间+学号',
+>  `u_id` int(11) NOT NULL COMMENT '请假人的id',
+>  `reason` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '请假理由',
+>  `leavetype` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '请假类型',
+>  `starttime` date DEFAULT NULL COMMENT '请假开始时间',
+>  `endtime` date DEFAULT NULL COMMENT '请假结束时间',
+>  `state` int(11) DEFAULT '0' COMMENT '审批状态',
+>  `createtime` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+>  `classes` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '所在的班级',
+>  PRIMARY KEY (`l_id`)
+>) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+>```
+
+### 1.8.4 公告表结构创建sql语句
+
+>```sql
+>DROP TABLE IF EXISTS `notice`;
+>CREATE TABLE `notice` (
+>  `n_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '公告id',
+>  `title` mediumtext COLLATE utf8_unicode_ci COMMENT '公告标题',
+>  `content` mediumtext COLLATE utf8_unicode_ci,
+>  `createtime` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+>  `class` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '通知的班级',
+>  PRIMARY KEY (`n_id`)
+>) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+>```
+
+### 1.8.5 阅读表结构创建sql语句
+
+>```sql
+>DROP TABLE IF EXISTS `read`;
+>CREATE TABLE `read` (
+>  `r_id` int(11) NOT NULL AUTO_INCREMENT,
+>  `u_id` int(11) NOT NULL,
+>  `n_id` int(11) DEFAULT NULL,
+>  `readtime` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '已读时间',
+>  PRIMARY KEY (`r_id`)
+>) ENGINE=InnoDB AUTO_INCREMENT=148 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+>```
+
+### 1.8.6 班级表结构创建sql语句
+
+>```sql
+>DROP TABLE IF EXISTS `class`;
+>CREATE TABLE `class` (
+>  `c_id` int(11) NOT NULL AUTO_INCREMENT,
+>  `classes` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+>  PRIMARY KEY (`c_id`)
+>) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+>```
+
+
+
