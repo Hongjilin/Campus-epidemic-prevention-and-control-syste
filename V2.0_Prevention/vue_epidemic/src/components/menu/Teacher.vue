@@ -244,12 +244,12 @@
         </div>
         <!-- /.content-wrapper -->
         <footer class="main-footer">
-            <strong>@洪-2020 <a href="#">校园疫情</a>.</strong>
+            <strong>@洪-2020 <a href="https://gitee.com/hongjilin">校园疫情防控管理系统</a>.</strong>
             All rights reserved.
             <div class="float-right d-none d-sm-inline-block">
                 <b>Version
 
-                </b> 3.1.0
+                </b> 2.1.1
             </div>
         </footer>
 

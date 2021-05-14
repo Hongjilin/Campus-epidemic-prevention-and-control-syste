@@ -54,15 +54,15 @@
               </el-table-column>
               <el-table-column
                       prop="gohubei"
-                      label="是否去过湖北">
+                      label="是否去过高危地区">
               </el-table-column>
               <el-table-column
                       prop="hubeiren"
-                      label="是否为湖北人员">
+                      label="是否为高危地区人员">
               </el-table-column>
               <el-table-column
                       prop="mask"
-                      label="是否接触过湖北人员">
+                      label="是否接触过高危地区人员">
               </el-table-column>
               <el-table-column
                       prop="leaveout"
@@ -101,19 +101,19 @@
                     <el-radio label="是"></el-radio>
                     </el-radio-group>
                 </el-form-item>
-                <el-form-item label="是否去过湖北">
+                <el-form-item label="是否去过高危地区">
                     <el-radio-group v-model="form.radio3">
                     <el-radio label="否"></el-radio>
                     <el-radio label="是"></el-radio>
                     </el-radio-group>
                 </el-form-item>
-              <el-form-item label="是否为湖北人员">
+              <el-form-item label="是否为高危地区人员">
                   <el-radio-group v-model="form.radio9">
                       <el-radio label="否"></el-radio>
                       <el-radio label="是"></el-radio>
                   </el-radio-group>
               </el-form-item>
-                <el-form-item label="是否接触过湖北人员">
+                <el-form-item label="是否接触过高危地区人员">
                     <el-radio-group v-model="form.radio7">
                     <el-radio label="否"></el-radio>
                     <el-radio label="是"></el-radio>
