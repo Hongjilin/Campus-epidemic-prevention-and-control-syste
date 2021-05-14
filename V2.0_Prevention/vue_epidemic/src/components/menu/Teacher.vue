@@ -229,7 +229,7 @@
             <!-- /.content-header -->
 
             <!-- Main content -->
-            <section class="content" style="height: 34.5rem;overflow-y: scroll">
+         <section class="content" style="height: 48rem;overflow-y: scroll">
                 <div class="container-fluid">
                     <el-row style="padding: 10px 10px">
                         <el-col :span="24">
@@ -243,13 +243,14 @@
             <!-- /.content -->
         </div>
         <!-- /.content-wrapper -->
-        <footer class="main-footer">
-            <strong>@洪-2020 <a href="https://gitee.com/hongjilin">校园疫情防控管理系统</a>.</strong>
-            All rights reserved.
+        <footer class="main-footer"  >
+            <strong>@洪-2020-Version 2.0  <a href="https://gitee.com/hongjilin">校园疫情防控管理系统</a>.</strong>
+            All rights reserved. 
+          
             <div class="float-right d-none d-sm-inline-block">
-                <b>Version
-
-                </b> 2.1.1
+                <b>
+                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+                </b> 
             </div>
         </footer>
 
