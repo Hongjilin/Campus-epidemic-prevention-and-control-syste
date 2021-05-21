@@ -18,7 +18,7 @@ var mailPwd = 'mkxauxzbwsqsbdbb'
  */
 
 function emailTo(email,subject,text,html,callback) {
-    console.log("jinlai ")
+    // console.log("jinlai ")
     var transporter = nodemailer.createTransport({
         host: smtp,
         auth: {

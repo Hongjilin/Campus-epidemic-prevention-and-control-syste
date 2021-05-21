@@ -202,7 +202,7 @@ export default {
               method:"get",
               data:{},
               success:(result)=> {
-                  console.log(result,"xxxxxxxxxxxxx---------------------")
+                //   console.log(result,"xxxxxxxxxxxxx这是结果!!!!!!!!!!!!!!!!!!!!!---------------------")
                   if(result.length==0) this.show=true
                   else {
                       this.show=false;

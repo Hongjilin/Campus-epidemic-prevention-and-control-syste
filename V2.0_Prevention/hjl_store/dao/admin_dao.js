@@ -151,7 +151,7 @@ module.exports = class admin_dao extends require('../model/admin_mod') {
     }
     static async getClassesSear(req,resp){
         let classes=req.query.inputText;
-        console.log(req.query.pageNum)
+        // console.log(req.query.pageNum)
         let data =await this.getClassesSearMod(classes,req.query.pageNum,req.query.currPage)
         let total=await  this.getClassesSearTotal(classes)
         resp.send({data,total:total[0].count})

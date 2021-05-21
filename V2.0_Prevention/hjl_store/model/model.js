@@ -52,12 +52,38 @@ module.exports=class  Model {
     static  getNowAndLastDate(){
         let date= new Date();
         let Month =""
-        if ((date.getMonth()+1)<10)   Month="0"+String((date.getMonth()+1))
-        else Month=(date.getMonth()+1)+""
         let now=date.getDate()
         let lastnow=date.getDate()
+        if ((date.getMonth()+1)<10)   Month="0"+String((date.getMonth()+1))
+        else Month=(date.getMonth()+1)+""
+        switch(date.getMonth()){
+            case 1:
+            case 3:
+            case 5:
+            case 7:
+            case 8:
+            case 10:
+            case 12:
+                if(lastnow<31)  lastnow++
+                else {lastnow='01';Month++}
+                break;
+                case 2://如果是闰年且小于28
+                     if(!(now % (now % 100 ? 4 : 400))&& lastnow<28)   lastnow++;
+                       else if(lastnow<28) lastnow++
+                       else {lastnow='01';Month++}
+                    break;
+                case 4:
+                case 6:
+                case 9:
+                case 11:
+                    if(lastnow<30)  lastnow++
+                else {lastnow='01';Month++}
+                break;
+        }
+        // let now=date.getDate()
+      
         if(date.getDate()<10) now="0"+date.getDate()
-        if(date.getDate()<9) lastnow="0"+(date.getDate()+1)
+        if(date.getDate()<9) lastnow="0"+(date.getDate())
         let newDate= ""+date.getFullYear()+Month+now
         let lastDate=""+date.getFullYear()+Month+lastnow
         let nowMonth=""+date.getFullYear()+Month+"01"

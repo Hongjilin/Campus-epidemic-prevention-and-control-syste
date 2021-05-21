@@ -2,8 +2,8 @@ module.exports = function (io) {
     var socketList = {};
     var users = [];
     io.on('connection', function (socket) {
-        console.log('链接成功！');
-        console.log('链接用户：' + socket.id)
+        // console.log('链接成功！');
+        // console.log('链接用户：' + socket.id)
         socket.on('message', msgData => {
             console.log('接收到消息：' + msgData.msg)
             io.emit('getmsg', {target: socket.id, msgData, date: Date.now()})
@@ -21,7 +21,7 @@ module.exports = function (io) {
             socket.name = name;
             socketList[name] = socket.id;
             let user = {name: name, img: img, id: socket.id, tip: false ,uid:joinData.uid};
-            console.log(user)
+            // console.log(user)
             // console.log(users)
             let falg = true
             for (let i = 0; i < users.length; i++) {

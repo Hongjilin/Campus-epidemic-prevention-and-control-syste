@@ -24,7 +24,7 @@ let set =  (key,value,expire,dbNum) => {
         value=JSON.stringify(value)
     }
     
-    console.log(`[redis]set key=${key}  value=${value}  expire=${expire}  dbNum=${dbNum}`)
+    // console.log(`[redis]set key=${key}  value=${value}  expire=${expire}  dbNum=${dbNum}`)
     if (!dbNum) {
         dbNum = 0
     }
@@ -58,7 +58,7 @@ let set =  (key,value,expire,dbNum) => {
  * @return {Promise<*>}
  */
 let get = async (key, dbNum) => {
-    console.log(`[redis]get key=${key} dbNum=${dbNum}`)
+    // console.log(`[redis]get key=${key} dbNum=${dbNum}`)
     if (!dbNum) {
         dbNum = 0
     }

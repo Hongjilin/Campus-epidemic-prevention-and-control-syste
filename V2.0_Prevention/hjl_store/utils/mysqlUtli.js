@@ -31,7 +31,7 @@ let exec =  function (sql,params) {
                             console.error(err)
                           //  reject(err)
                         } else {
-                            console.log(`${logPrefix}result : ${JSON.stringify(results)}`);
+                            // console.log(`${logPrefix}result : ${JSON.stringify(results)}`);
                             resolve(results)
                         }
                         // 结束会话 释放链接

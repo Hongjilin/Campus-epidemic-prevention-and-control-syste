@@ -4,7 +4,7 @@
         <transition name="el-fade-in-linear">
             <el-card class="box-card" shadow="hover" style="text-align: center"    @keyup.enter.native="login" >
                 <div slot="header" class="clearfix" style="text-align: center">
-                    <h2 style="font-size: 1rem">校园疫情管理系统</h2>
+                    <h2 style="font-size: 1rem">校园疫情防控管理系统</h2>
                 </div>
                 <el-input prefix-icon="el-icon-user-solid" v-model="input_user" placeholder="请输入用户名" class="inp"></el-input>
                 <div style="height: 1.3rem"></div>

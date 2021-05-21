@@ -152,6 +152,7 @@ module.exports = class student_mod extends require('./model') {
      * @param lastDate
      */
     static getHealthNowDayByidMod(u_id, newDate, lastDate) {
+        
         return new Promise((resolve, reject) => {
             let sql = "select * from health where (createtime between ? and ?) and u_id = ?"
             this.query(sql, this.formatParams(newDate, lastDate, u_id)).then(result => {

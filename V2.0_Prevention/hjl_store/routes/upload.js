@@ -23,7 +23,7 @@ router.post('/upload',function (req,res) {
         fields.push([field,value])
     })
     form.on('file',function (field,file) {
-        console.log("fileName:"+ file.name)
+        // console.log("fileName:"+ file.name)
      let filext=file.name.substring(file.name.lastIndexOf("."),file.name.length)
         if (filext!='.xlsx'){
             redisUtils.set('xlsxData','err',3600)
@@ -42,7 +42,7 @@ router.post('/upload',function (req,res) {
         let folder_exists=await fs.existsSync(target_path)
         if (folder_exists) {
             let dirList=await fs.readdirSync(target_path)
-            console.log("dirList:",dirList)
+            // console.log("dirList:",dirList)
             dirList.forEach(item=>{
                 if (!fs.statSync(target_path + '\\' + item).isDirectory()){
                     fileName=target_path+'\\'+item;

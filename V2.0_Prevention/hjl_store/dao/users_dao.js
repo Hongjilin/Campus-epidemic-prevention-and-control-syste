@@ -46,7 +46,7 @@ module.exports=class users_dao extends  require('../model/users_mod'){
      * @param resp
      */
     static async getUsersByTypePage(req,resp){
-        console.log(req.query)
+        // console.log(req.query)
         let query=req.query;
         let data = await this.getUsersByTypePageMod(query.type,query.currPage,query.pageNum)
         let total=await this.getUsersByTypePageTotal(query.type)
@@ -85,7 +85,7 @@ module.exports=class users_dao extends  require('../model/users_mod'){
      * @returns {Promise<void>}
      */
     static async setXlsxData(req,resp){
-        console.log("点击导入")
+        // console.log("点击导入")
         let xlsxData=await redisUtils.get("xlsxData")
         let AllUsers=await  this.getAllUserX();
         if (xlsxData=='err') {
@@ -95,7 +95,7 @@ module.exports=class users_dao extends  require('../model/users_mod'){
         xlsxData=JSON.parse(xlsxData)[0].data
         let inXlsxArr=[];
         let infalg=true;
-        console.log(xlsxData[0].length)
+        // console.log(xlsxData[0].length)
         if (xlsxData[0].length!=8) resp.send("导入的表格数据格式错误")
 
         for (let i=1;i<xlsxData.length;i++){
@@ -153,7 +153,7 @@ module.exports=class users_dao extends  require('../model/users_mod'){
      * @returns {Promise<void>}
      */
     static async upUserHead(req,resp){
-        console.log(req.u_id)
+        // console.log(req.u_id)
         let results=await this.upUserHeadMod(req.head_imgUrl,req.u_id)
         resp.send(results)
     }
