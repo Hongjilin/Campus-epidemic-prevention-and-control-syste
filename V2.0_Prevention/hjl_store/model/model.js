@@ -5,7 +5,7 @@ const pool = mysql.createPool({
         user: 'root',
         password: 'root',
         port: '3306',
-        database: 'yiqing_store'
+        database: 'vue_store'
 
     })
     /**
