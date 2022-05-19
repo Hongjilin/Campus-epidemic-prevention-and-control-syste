@@ -13,7 +13,7 @@ module.exports = class student_dao extends require('../model/student_mod') {
         let currPage = req.query.currPage
         let data = await this.getNoticeMod(u_classes, pageNum, currPage)
         let total = await this.getNoticeTotal(u_classes)
-        resp.send({data, total: total[0].count})
+        resp.send({ data, total: total[0].count })
     }
 
     /**
@@ -79,7 +79,7 @@ module.exports = class student_dao extends require('../model/student_mod') {
         let mask = body.mask
         let masknum = body.masknum
         let kill = body.kill
-        //解密
+            //解密
         let verify = await jwtUtil.verifysync(token, globalKey)
         let u_id = verify.id
         let data = await this.sethealthMod(u_id, temperature, hot, gohubei, hubeiren, fever, leave, hesuan, mask, masknum, kill)
@@ -103,7 +103,7 @@ module.exports = class student_dao extends require('../model/student_mod') {
         let pageNum = req.query.pageNum
         let data = await this.gethealthNowDayPageMod(newDate, lastDate, currPage, pageNum)
         let total = await this.gethealthNowDayPageTotal(newDate, lastDate)
-        resp.send({data, total: total[0].count})
+        resp.send({ data, total: total[0].count })
     }
 
     /**\
@@ -127,33 +127,33 @@ module.exports = class student_dao extends require('../model/student_mod') {
      * @param resp
      * @returns {Promise<void>}
      */
-    static  async gethealthNowDay(req,resp){
-        let nowDate=this.getNowAndLastDate().newDate
-        let lasDate=this.getNowAndLastDate().lastDate
-        let data= await this.gethealthNowDayMod(nowDate,lasDate)
-        resp.send(data)
+    static async gethealthNowDay(req, resp) {
+            let nowDate = this.getNowAndLastDate().newDate
+            let lasDate = this.getNowAndLastDate().lastDate
+            let data = await this.gethealthNowDayMod(nowDate, lasDate)
+            resp.send(data)
 
-    }
-    /**
-     * 获取当天所有填报表
-     * @param req
-     * @param resp
-     * @returns {Promise<void>}
-     */
-    static  async gethealthNowMonth(req,resp){
-        let nowDate=this.getNowAndLastDate().nowMonth
-        let lasDate=this.getNowAndLastDate().lastMonth
-        let data= await this.gethealthNowMonthMod(nowDate,lasDate)
-        resp.send(data)
-    }
-    /**
-     * 获取所有填报表
-     * @param req
-     * @param resp
-     * @returns {Promise<void>}
-     */
-    static  async getAllHealth(req,resp){
-        let data= await this.getAllHealthMod()
+        }
+        /**
+         * 获取当天所有填报表
+         * @param req
+         * @param resp
+         * @returns {Promise<void>}
+         */
+    static async gethealthNowMonth(req, resp) {
+            let nowDate = this.getNowAndLastDate().nowMonth
+            let lasDate = this.getNowAndLastDate().lastMonth
+            let data = await this.gethealthNowMonthMod(nowDate, lasDate)
+            resp.send(data)
+        }
+        /**
+         * 获取所有填报表
+         * @param req
+         * @param resp
+         * @returns {Promise<void>}
+         */
+    static async getAllHealth(req, resp) {
+        let data = await this.getAllHealthMod()
         resp.send(data)
     }
 
@@ -163,19 +163,19 @@ module.exports = class student_dao extends require('../model/student_mod') {
      * @param resp
      * @returns {Promise<void>}
      */
-    static  async setLeave(req,resp){
-        let body=req.body
-        let verify=await jwtUtil.verifysync(body.token,globalKey)
-        let u_id=verify.id
-        let classes=verify.classes
-        let reason =body.reason
-        let leavetype =body.leavetype
-        let starttime =body.starttime
-        let endtime =body.endtime
+    static async setLeave(req, resp) {
+        let body = req.body
+        let verify = await jwtUtil.verifysync(body.token, globalKey)
+        let u_id = verify.id
+        let classes = verify.classes
+        let reason = body.reason
+        let leavetype = body.leavetype
+        let starttime = body.starttime
+        let endtime = body.endtime
 
-        let results=await this.setLeaveMod(u_id,classes,reason,leavetype,starttime,endtime)
+        let results = await this.setLeaveMod(u_id, classes, reason, leavetype, starttime, endtime)
 
-            resp.send(results)
+        resp.send(results)
 
     }
 

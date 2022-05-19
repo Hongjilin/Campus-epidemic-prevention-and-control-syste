@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    function updateById({
+        user_name,
+        passWord,
+        is_admin
+    }) {
+
+        const newUser = {}
+
+        user_name && Object.assign(newUser, {
+            user_name
+        })
+        passWord && Object.assign(newUser, {
+            passWord
+        })
+        is_admin && Object.assign(newUser, {
+            is_admin
+        })
+        console.log(newUser);
+    }
+    updateById({
+        user_name: "asd",
+        passWord: '123'
+    })
+</script>

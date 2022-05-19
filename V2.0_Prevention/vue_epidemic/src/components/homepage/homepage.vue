@@ -136,7 +136,9 @@
                 method:"get",
                 data:{},
                 success:(result)=> {
+
                     this.fill=result.length;
+                    
                     let tim0=0;
                     let tim1=0;
                     let tim2=0;
@@ -281,6 +283,7 @@
                         { '类型': '未核酸检测', '访问用户': hesuanNo },
                     )
                 }
+
             });
             /**
              *根据用户类型进行用户信息获取(该方法主要用来获取总检测人数==>学生人数)

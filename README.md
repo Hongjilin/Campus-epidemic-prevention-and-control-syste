@@ -1,3 +1,11 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2022-05-19 10:10:40
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2022-05-19 10:25:32
+-->
 # 校园疫情防控管理系统
 
 #### 介绍
@@ -31,9 +39,7 @@
 
 #### 使用说明
 >1. 本项目使用了`Redis`,主要就是为了练习这一知识点,所以需要先打开Redis数据库(该免安装文件包传在tools中,直接点击运行即可),当然你要是不想,可以自己改一下源码把解析文件那备份重写即可 :ok_hand: 还有`记得先创建mysql数据库与表结构!!创表语句我在接口文档中给出了`
->
->   Redis百度云盘分享：https://pan.baidu.com/s/11W2gQIqiqUOD5t12VnKlcg   提取码：iawv
->
+>2. Redis免安装版百度云分享：https://pan.baidu.com/s/11W2gQIqiqUOD5t12VnKlcg  提取码：iawv
 >2. 下载项目第一步`yarn`或者`npm i`所有依赖,其次你需要有安装node环境(很简单,去官网下载一个exe安装即可)
 >
 >3. 运行node端代码:`npm run start`  or `yarn start`

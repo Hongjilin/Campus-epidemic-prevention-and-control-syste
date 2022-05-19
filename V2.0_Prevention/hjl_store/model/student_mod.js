@@ -108,8 +108,8 @@ module.exports = class student_mod extends require('./model') {
                 .then(result => {
                     resolve("健康填报表提交成功")
                 }).catch(err => {
-                reject("健康填报表提交失败")
-            })
+                    reject("健康填报表提交失败")
+                })
         })
     }
 
@@ -152,7 +152,7 @@ module.exports = class student_mod extends require('./model') {
      * @param lastDate
      */
     static getHealthNowDayByidMod(u_id, newDate, lastDate) {
-        
+
         return new Promise((resolve, reject) => {
             let sql = "select * from health where (createtime between ? and ?) and u_id = ?"
             this.query(sql, this.formatParams(newDate, lastDate, u_id)).then(result => {
@@ -170,8 +170,8 @@ module.exports = class student_mod extends require('./model') {
      */
     static gethealthNowDayMod(nowDate, lasDate) {
         return new Promise((resolve, reject) => {
-            let sql = "select * from health where createtime between ? and ?"
-            this.query(sql, this.formatParams(nowDate, lasDate)).then(result => {
+            let sql = `select * from health where createtime between ${nowDate} and ${lasDate}`
+            this.query(sql).then(result => {
                 resolve(result)
             }).catch(err => {
                 reject(err)
@@ -219,12 +219,12 @@ module.exports = class student_mod extends require('./model') {
      * @param endtime
      */
     static setLeaveMod(u_id, classes, reason, leavetype, starttime, endtime) {
-        u_id=Number(u_id)
-        return new Promise((resolve, reject)=>{
-            let sql="insert into `leave` (u_id, classes, reason, leavetype, starttime, endtime,state) values (?,?,?,?,?,?,0) "
-            this.query(sql,this.formatParams(u_id, classes, reason, leavetype, starttime, endtime)).then(()=>{
+        u_id = Number(u_id)
+        return new Promise((resolve, reject) => {
+            let sql = "insert into `leave` (u_id, classes, reason, leavetype, starttime, endtime,state) values (?,?,?,?,?,?,0) "
+            this.query(sql, this.formatParams(u_id, classes, reason, leavetype, starttime, endtime)).then(() => {
                 resolve("提交请假申请成功")
-            }).catch(err=>{
+            }).catch(err => {
                 reject("提交请假申请失败")
             })
         })
