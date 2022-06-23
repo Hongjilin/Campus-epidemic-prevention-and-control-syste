@@ -1,0 +1,60 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body,
+html,
+#app {
+    height: 100%;
+}
+
+body {
+    user-select: none;
+    /* 禁止用户选中文本或图片复制 */
+    width: 100vw;
+    /* vw 占整个设备的宽度 */
+}
+
+body .el-table th.gutter {
+    display: table-cell !important;
+}
+
+body .el-table colgroup.gutter {
+    display: table-cell !important;
+}
+
+a {
+    text-decoration: none;
+    /* a标签没有划线 */
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+
+/*由于商品详情页面图片样式不起效，这里写到全局来*/
+
+img {
+    max-width: 100% !important;
+}
+
+.el-col-12 {
+    width: 100%;
+}
+
+.el-breadcrumb {
+    margin-bottom: 20px;
+}
+
+.el-card {
+    margin-bottom: 5px;
+}
