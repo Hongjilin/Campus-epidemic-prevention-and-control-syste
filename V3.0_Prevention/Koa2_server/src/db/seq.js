@@ -5,10 +5,10 @@ const seq = new Sequelize('vue_store', 'root', 'root', {
     dialect: 'mysql'
 })
 
-// seq.authenticate().then(() => {
-//     console.log('数据库链接成功');
-// }).catch(err => {
-//     console.log(err);
-// })
+seq.authenticate().then(() => {
+    console.log('数据库链接成功');
+}).catch(err => {
+    console.log(err);
+})
 
 module.exports = seq
